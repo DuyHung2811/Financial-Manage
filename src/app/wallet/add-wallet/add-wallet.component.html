@@ -1,0 +1,132 @@
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Thêm Ví</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="walletForm" (ngSubmit)="addWallet()" >
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <a data-bs-toggle="modal" data-bs-target="#exampleModal" style="background: #f7f7f7"><span
+              class="input-group-text" id="basic-addon3" style="background: #4694e1; color: #f7f7f7"><img
+              src="{{icon}}" style="width: 30px;height: 30px"></span></a>
+            <input type="text" class="form-control" placeholder="Tên ví" aria-label="Username"
+                   aria-describedby="basic-addon1" style="margin-left: 10px" formControlName="name">
+          </div>
+          <div class="input-group mb-3" style="margin-top: 30px;margin-left: 15%">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="moneyType" id="flexRadioDefault1"  value="1" formControlName="moneyType" >
+              <img src="https://static.moneylover.me/img/flag/ic_currency_vnd.png"
+                   style="width: 20px;height: 20px; margin-right: 4px">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Việt Nam Đồng
+              </label>
+            </div>
+            <div class="form-check" style="margin-left: 50px">
+              <input class="form-check-input" type="radio" name="moneyType" id="flexRadioDefault2" checked value="2" formControlName="moneyType">
+              <img src="https://static.moneylover.me/img/flag/ic_currency_usd.png"
+                   style="width: 20px;height: 20px; margin-right: 5px">
+              <label class="form-check-label" for="flexRadioDefault2">
+                USD
+              </label>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn_1 btn btn-primary" style="background: #4694e1; margin-left: 80%; margin-bottom: 10px" data-bs-dismiss="modal" aria-label="Close">Thêm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Chọn Icon</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table width="100%">
+          <tr>
+            <td><img src="https://static.moneylover.me/img/icon/icon.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_1.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_2.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_3.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_4.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_5.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_6.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_7.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+          </tr>
+          <tr>
+            <td><img src="https://static.moneylover.me/img/icon/icon_15.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_8.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_9.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_10.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_11.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_12.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_13.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_14.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+          </tr>
+          <tr>
+            <td><img src="https://static.moneylover.me/img/icon/icon_16.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_17.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_18.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_19.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_20.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_21.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_22.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_23.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+          </tr>
+          <tr>
+            <td><img src="https://static.moneylover.me/img/icon/icon_24.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_25.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_26.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_27.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_28.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_29.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_30.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+            <td><img src="https://static.moneylover.me/img/icon/icon_31.png" style="width: 30px;height: 30px"
+                     data-bs-dismiss="modal" (click)="changeIcon($event)"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

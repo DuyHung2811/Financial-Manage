@@ -1,0 +1,58 @@
+<app-side-bar></app-side-bar>
+<section class="main_content dashboard_part">
+  <app-nav-bar></app-nav-bar>
+  <div class="main_content_iner" style="margin-top: -30px">
+    <div class="container-fluid plr_30 body_white_bg pt_30">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="messages_box_area">
+            <div class="messages_list">
+              <div class="white_box">
+                <div class="serach_field_2">
+                  <button class="btn_1 btn btn-primary" type="submit" data-bs-toggle="modal"
+                          data-bs-target="#staticBackdrop">
+                    <i class="fa-solid fa-plus"></i> 
+                    Thêm ví
+                  </button>
+                </div>
+                <ul>
+                  <li *ngFor="let wallet of wallets; let i = index;">
+                    <a routerLink="{{wallet.id}}">
+                      <div class="message_pre_left">
+                        <div class="message_preview_thumb">
+                          <img src="{{wallet.icon}}" alt="">
+                        </div>
+                        <div class="messges_info">
+                          <h4>{{wallet.name}}</h4>
+                          <p>{{wallet.amountMoney}}</p>
+                        </div>
+                      </div>
+                      <div class="messge_time" *ngIf="wallet.status == 2" >
+                        <span style="color: #4694e1"><i class="fa-solid fa-circle"></i> Đang sử dụng</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="messages_chat">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_part">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+            <div class="footer_iner text-center">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-add-wallet (onNewWallet)="pushNewWallet($event)"></app-add-wallet>
+

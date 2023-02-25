@@ -1,0 +1,76 @@
+<app-side-bar></app-side-bar>
+<section class="main_content dashboard_part">
+  <app-nav-bar></app-nav-bar>
+  <div class="main_content_iner" style="border: 1px solid rgba(0,0,0,0.2);width: 70%;margin-left: 13%;border-radius: 0.3rem;">
+    <div class="container-fluid plr_30 body_white_bg pt_30">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="white_box mb_30">
+            <div class="box_header ">
+              <div class="main-title">
+                <h5 class="mb-0" style="margin-left: 275px;font-size: 22px;font-weight: 600; padding-bottom: 35px; margin-top: -30px">Trang cá nhân</h5>
+              </div>
+            </div>
+            <form [formGroup]="updateForm" (ngSubmit)="update()">
+              <div class="row">
+                <div class="col-5">
+                  <div class="profile-pic pt-5">
+                    <label class="-label" for="file">
+                      <span class="glyphicon glyphicon-camera"></span>
+                      <span>Thay đổi</span>
+                    </label>
+                    <input type="file" id="file" #userPhoto (change)="onFileSelected($event)" name="image"
+                           autocomplete="off"/>
+                    <img src="{{image}}" id="output" width="200">
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="row">
+                    <input type="email" class="form-control" id="exampleFormControlInput" placeholder="Email"
+                           formControlName="email">
+                  </div>
+                  <div class="row pt-4">
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Tên"
+                           formControlName="username">
+                  </div>
+                  <div class="row pt-4">
+                    <input type="text" class="form-control" placeholder="Địa chỉ" formControlName="address">
+                  </div>
+                  <div class="row pt-4">
+                    <input type="number" class="form-control" placeholder="Tuổi" formControlName="age">
+                  </div>
+                  <div class="row pt-4">
+                    <div style="margin-top: 10px">
+                      <input type="radio" id="huey" name="sex" value="0" checked formControlName="sex">
+                      <label for="huey" style="margin-left: 5px">Nam</label>
+                      <input type="radio" id="huey2" name="sex" value="1" checked formControlName="sex" style="margin-left: 20px">
+                      <label for="huey2" style="margin-left: 3px">Nữ</label>
+                      <input type="radio" id="huey3" name="sex" value="2" checked formControlName="sex" style="margin-left: 20px">
+                      <label for="huey3" style="margin-left: 3px">Khác</label>
+                    </div>
+                  </div>
+                  <div class="row pt-4">
+                    <button type="submit" class="btn_1 full_width text-center">
+                      <i class="fa-solid fa-pen-to-square"></i>
+                      Cập nhật
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_part">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+            <div class="footer_iner text-center">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

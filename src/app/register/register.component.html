@@ -1,0 +1,86 @@
+<section>
+  <p style="text-align: center;margin-top: 30px" ><img src="assets/img/logo2.png" style="width: 150px;height: 150px"></p>
+  <div style="margin-top: -30px" >
+    <div class="container-fluid plr_30 body_white_bg pt_30">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="white_box mb_30">
+            <div class="row justify-content-center">
+              <div class="col-lg-6">
+                <div class="modal-content cs_modal">
+                  <div class="modal-header">
+                    <h5 class="modal-title" style="margin-left: 42%">Đăng Kí</h5>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()">
+                      <!-- <div class="row social_login_btn">
+                        <div class="form-group col-md-12 text-center">
+                          <a href="#" class="btn_1 full_width"><i class="fab fa-facebook-square"></i>Đăng nhập bằng FaceBook</a>
+                        </div>
+                        <div class="form-group col-md-12 text-center">
+                          <a href="#" class="btn_1 full_width"><i class="fab fa-google"></i>Đăng nhập bằng Google</a>
+                        </div>
+                      </div>
+                      <div class="border_style">
+                        <span>Hoặc</span>
+                      </div> -->
+                      <div class="">
+                        <input type="text" class="form-control" placeholder="Tài khoản" formControlName="username" >
+                      </div>
+                      <div *ngIf="!username?.['valid'] && (username?.dirty ||username?.['touched'])">
+                        <div [hidden]="!username?.errors?.['required']">
+                          <i style="color: red" > Tên đăng nhập không được để trống</i>
+                        </div>
+                        <div [hidden]="!username?.errors?.['minlength']">
+                          <i style="color: red" > Tên đăng nhập phải có ít nhất 6 ký tự</i>
+                        </div>
+                        <div [hidden]="!username?.errors?.['maxlength']">
+                          <i style="color: red" > Tên đăng nhập có tối đa 12 ký tự</i>
+                        </div>
+                      </div>
+                      <div class="">
+                        <input type="password" class="form-control" placeholder="Mật khẩu" formControlName="password">
+                      </div>
+                      <div *ngIf="!password?.['valid'] && (password?.dirty ||password?.['touched'])" >
+                        <div [hidden]="!password?.errors?.['required']">
+                          <i style="color: red" > Mật khẩu không được để trống</i>
+                        </div>
+                        <div [hidden]="!password?.errors?.['minlength']">
+                          <i style="color: red" > Mật khẩu phải có ít nhất 6 ký tự</i>
+                        </div>
+                        <div [hidden]="!password?.errors?.['maxlength']">
+                          <i style="color: red" > Mật khẩu có tối đa 12 ký tự</i>
+                        </div>
+                      </div>
+                      <div class="">
+                        <input type="password" class="form-control" placeholder="Nhập lại mật khẩu" formControlName="confirmPassword" pattern="{{password?.value}}" >
+                      </div>
+                      <div *ngIf="!confirmPassword?.['valid'] && confirmPassword?.['touched'] ">
+                        <div [hidden]="!confirmPassword?.errors?.['required']">
+                          <i style="color: red" >Vui lòng nhập mật khẩu</i>
+                        </div>
+                        <div [hidden]="!confirmPassword?.errors?.['pattern']">
+                          <i style="color: red">Mật khẩu được nhập lại không đúng! Vui lòng nhập lại   </i>
+                        </div>
+                      </div>
+                      <div class=" cs_check_box">
+                        <input type="checkbox" id="check_box" class="common_checkbox">
+                        <label class="form-label" for="check_box">
+                          Nhớ mật khẩu
+                        </label>
+                      </div>
+                      <button type="submit"   class="btn_1 full_width text-center"> Đăng ký </button>
+                      <p>Bạn đã có tài khoản ? <a data-bs-toggle="modal" data-bs-target="#sing_up" data-bs-dismiss="modal" routerLink="/" style="color: #0c63e4">Đăng nhập</a></p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

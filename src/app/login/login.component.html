@@ -1,0 +1,46 @@
+<section>
+  <p style="text-align: center;margin-top: 30px"><img src="assets/img/logo2.png" style="width: 150px;height: 150px"></p>
+  <div style="margin-top: -30px">
+    <div class="container-fluid plr_30 body_white_bg pt_30">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="white_box mb_30">
+            <div class="row justify-content-center">
+              <div class="col-lg-6">
+                <div class="modal-content cs_modal">
+                  <div class="modal-header">
+                    <h5 class="modal-title" style="margin-left: 42%">Đăng nhập</h5>
+                  </div>
+                  <div class="modal-body">
+                    <!-- <div class="row social_login_btn">
+                      <div class="form-group col-md-12 text-center">
+                        <button class="btn_1 full_width" (click)="signInWithFB()"><i class="fab fa-facebook-square"></i>Đăng
+                          nhập với facebook
+                        </button>
+                      </div>
+                    </div> -->
+                    <!-- <div class="border_style">
+                      <span>Hoặc</span>
+                    </div> -->
+                    <form [formGroup]="loginForm" (ngSubmit)="login()">
+                      <div class="">
+                        <input type="text" class="form-control" placeholder="Tên đăng nhập" formControlName="username">
+                      </div>
+                      <div class="">
+                        <input type="password" class="form-control" placeholder="Mật khẩu" formControlName="password">
+                      </div>
+                      <button type="submit" class="btn_1 full_width text-center"> Đăng nhập</button>
+                      <!-- <p style="color: #0c63e4"><a [routerLink]="['/routePath']" routerLinkActive="router-link-active" >Quên mật khẩu</a></p> -->
+                      <p>Bạn chưa có tài khoản? <a data-bs-toggle="modal" data-bs-target="#sing_up"
+                          data-bs-dismiss="modal" routerLink="/register" style="color: #0c63e4">Đăng kí</a></p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
