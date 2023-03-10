@@ -18,7 +18,7 @@ export class AdminHomeComponent implements OnInit {
   constructor(private UserService: UserService,
     private router: Router,
     private toast: NgToastService) {
-}
+  }
 
   ngOnInit(): void {
     this.showListUsers();
@@ -37,10 +37,12 @@ export class AdminHomeComponent implements OnInit {
 
 
 
+
+
   listUsers: User[] = [];
 
-  showListUsers(){
-    this.UserService.showAllUser().subscribe((users)=>{
+  showListUsers() {
+    this.UserService.showAllUser().subscribe((users) => {
       this.listUsers = users;
     }, e => {
       console.log(e);
@@ -50,7 +52,7 @@ export class AdminHomeComponent implements OnInit {
   confirmLock(id: number) {
     this.user = this.UserService.findById(id);
     this.UserService.lockUser(id, this.user).subscribe(() => {
-      this.toast.success({detail:"Thông báo", summary: "Khoá thành công!",duration: 3000,position:'br'})
+      this.toast.warning({ detail: "Thông báo", summary: "Đã khoá tài khoản!", duration: 3000, position: 'br' })
       // this.router.navigateByUrl("/admin")
     }, error => {
       console.log(error)
@@ -60,18 +62,18 @@ export class AdminHomeComponent implements OnInit {
   confirmUnlock(id: number) {
     this.user = this.UserService.findById(id);
     this.UserService.unLockUser(id, this.user).subscribe(() => {
-      this.toast.success({detail:"Thông báo", summary: "Mở khoá thành công!",duration: 3000,position:'br'})
+      this.toast.success({ detail: "Thông báo", summary: "Đã mở khoá tài khoản", duration: 3000, position: 'br' })
       // this.router.navigateByUrl("/admin")
     }, error => {
       console.log(error)
     })
   }
 
-    //Paging
-    p: number = 1;
-    total: number = 0;
-  
-    pageChangeEvent(event: number) {
-      this.p = event;
-    }
+  //Paging
+  p: number = 1;
+  total: number = 0;
+
+  pageChangeEvent(event: number) {
+    this.p = event;
+  }
 }

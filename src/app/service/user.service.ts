@@ -16,6 +16,11 @@ export class UserService {
     return this.httpClient.get(API_URL)
   }
 
+  //thêm
+  // adminFindUser(username: any) : Observable<any> {
+  //   return this.httpClient.get<any>(environment.apiUrl  + `admin/find-user?username=${username}` )
+  // }
+
   lockUser(id: any, user: User): Observable<User> {
     return this.httpClient.put<User>(environment.apiUrl + `admin/lock-user/${id}` , user);
   }

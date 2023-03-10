@@ -6,6 +6,14 @@
         <div class="container-fluid plr_30 body_white_bg pt_30">
             <div class="row justify-content-center">
                 <div class="white_box QA_section" style="background: white">
+                    <div class="mb-5 d-flex justify-content-center">
+                        <!-- <form #userSearchForm="ngForm" class="form-inline d-flex w-75" (ngOnSubmit)="searchUser(userSearchForm.value)">
+                            <label class="sr-only" for="inlineFormInputName2">Name</label>
+                            <input type="search" name="search" id="search" class="form-control mb-2 mr-sm-2"
+                                placeholder="Nhập thông tin tìm kiếm">
+                            <button type="submit" class="btn btn-primary mb-2"></button>
+                        </form> -->
+                    </div>
                     <div class="white_box_tittle list_header">
                         <h4 style="margin-top: -5px"><i class="fa-solid fa-list"></i> Danh sách Người dùng </h4>
                         <div>
@@ -27,7 +35,8 @@
                                         <th scope="col">giới tính</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor = "let user of listUsers |paginate: { itemsPerPage: 7, currentPage: p, totalItems: total }; let i = index;">
+                                <tbody
+                                    *ngFor="let user of listUsers |paginate: { itemsPerPage: 7, currentPage: p, totalItems: total }; let i = index;">
                                     <tr>
                                         <th scope="row">
                                             <label class="form-label primary_checkbox d-flex me-12 ">{{i}}</label>
@@ -53,11 +62,14 @@
                                             Chỉnh sửa:
                                         </td>
                                         <td style="text-align: center">
-                                            <i class="fa-solid fa-lock" style="color: rgb(62, 74, 109)" (click)="confirmLock(user.id)"></i>
+                                            <i class="fa-solid fa-lock" style="color: rgb(62, 74, 109)"
+                                                (click)="confirmLock(user.id)"></i>
                                         </td>
                                         <td style="text-align: center">
                                             <a data-bs-toggle="modal" data-bs-target="#exampleModal-edit">
-                                                <i class="fa fa-unlock" aria-hidden="true" style="color: rgb(62, 74, 109)" (click)="confirmUnlock(user.id)"></i>
+                                                <i class="fa fa-unlock" aria-hidden="true"
+                                                    style="color: rgb(62, 74, 109)"
+                                                    (click)="confirmUnlock(user.id)"></i>
                                             </a>
                                         </td>
                                         <td></td>
@@ -66,10 +78,8 @@
                             </table>
                             <div class="dataTables_scroll" id="DataTables_Table_0_paginate"
                                 style="margin-left: 500px; margin-top: 20px">
-                                <pagination-controls
-                                previousLabel="Trước"
-                                nextLabel="Sau"
-                                (pageChange)="pageChangeEvent($event)"></pagination-controls>
+                                <pagination-controls previousLabel="Trước" nextLabel="Sau"
+                                    (pageChange)="pageChangeEvent($event)"></pagination-controls>
                             </div>
 
                         </div>
