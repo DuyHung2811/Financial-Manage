@@ -8,28 +8,30 @@
       </div>
       <form [formGroup]="transactionForm" (ngSubmit)="addTransaction()">
         <div class="modal-body">
-          <table style="width: 100%; border-spacing: 30px">
-            <tr>
-              <td class="tdTbale" style="width: 23%">
-                <a data-bs-toggle="modal" data-bs-target="#exampleModalCate" style="background: rgba(247,247,247,0.16)">
-                  <div class="flex-shrink-0">
-                    <svg width="20" height="20">
-                      <rect width="25" height="25" [ngStyle]="{'fill':color,'stroke-width':'3'}"/>
-                    </svg>
-                    <span style="margin-left: 10px;">{{nameCategory}}</span>
-                  </div>
-                </a>
-              </td>
-              <td style="width: 20px"></td>
-              <td class="tdTbale">
-                <input type="date" id="date" formControlName="time"/>
-              </td>
-              <td style="width: 20px"></td>
-              <td class="tdTbale"><input type="number" style="border: 1px solid #f1f3f5;" placeholder="Số tiền" formControlName="totalSpent"></td>
-              <td style="width: 20px"></td>
-              <td class="tdTbale"><input type="text" style="border: 1px solid #f1f3f5 ;" placeholder="Ghi chú" formControlName="note"></td>
-            </tr>
-          </table>
+          <div class="table-responsive">
+            <table style="width: 100%; border-spacing: 30px">
+              <tr>
+                <td class="tdTbale" style="width: 23%">
+                  <a data-bs-toggle="modal" data-bs-target="#exampleModalCate" style="background: rgba(247,247,247,0.16)">
+                    <div class="flex-shrink-0">
+                      <svg width="20" height="20">
+                        <rect width="25" height="25" [ngStyle]="{'fill':color,'stroke-width':'3'}"/>
+                      </svg>
+                      <span style="margin-left: 10px;">{{nameCategory}}</span>
+                    </div>
+                  </a>
+                </td>
+                <td style="width: 20px"></td>
+                <td class="tdTbale">
+                  <input type="date" id="date" formControlName="time"/>
+                </td>
+                <td style="width: 20px"></td>
+                <td class="tdTbale"><input type="number" style="border: 1px solid #f1f3f5;" placeholder="Số tiền" formControlName="totalSpent"></td>
+                <td style="width: 20px"></td>
+                <td class="tdTbale"><input type="text" style="border: 1px solid #f1f3f5 ;" placeholder="Ghi chú" formControlName="note"></td>
+              </tr>
+            </table>
+          </div>
         </div>
         <button type="submit" class="btn btn-primary"
                 style="width: 20%; margin-left: 77%;margin-bottom: 10px ;background: #3b76ef"><i class="fa-solid fa-plus"></i>
