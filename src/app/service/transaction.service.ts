@@ -46,6 +46,7 @@ export class TransactionService {
 
   findAllTransactionsIncomeFor6Months(): Observable<any> {
     const id = localStorage.getItem("ID_WALLET");
+    console.log(id)
     return this.httpClient.get(API + `find-all-income-6month/${id}`);
   }
 

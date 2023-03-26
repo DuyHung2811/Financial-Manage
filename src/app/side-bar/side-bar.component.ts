@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { MatCardLgImage } from '@angular/material/card';
 import {Router} from "@angular/router";
 import Swal from "sweetalert2";
 
@@ -21,4 +22,11 @@ export class SideBarComponent implements OnInit {
     this.isLogin = false;
     this.router.navigate(['/']).then();
   }
+
+//  onToggleSidebar() {
+//     const sidebar = document.querySelector(".sidebar");
+//     if(sidebar) {
+//       sidebar.classList.toggle("active");
+//     }
+//   }
 }

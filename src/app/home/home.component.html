@@ -3,7 +3,7 @@
   <app-nav-bar></app-nav-bar>
   <div class="main_content_iner">
     <div class="row">
-      <div class="col-6">
+      <div class="col-lg-6 col-xs-12">
         <div class="tab">
           <button class="tablinks-chart" onclick="openCityChart(event, 'chart-collect')" style="width: 50%">Biểu
             đồ thu
@@ -12,18 +12,18 @@
                   id="defaultOpen">Biểu đồ chi
           </button>
         </div>
-        <div id="chart-collect" class="tabcontent-chart" style="margin-top: 10px">
-          <div id="divChart" style="height: 400px; width: 400px; margin-left: 15%">
+        <div id="chart-collect" class="tabcontent-chart chart-wrapper" style="margin-top: 10px"> c
+          <div id="divChart" class="chart-item" style="height: 400px; width: 400px;">
             <canvas id="myChart"></canvas>
           </div>
         </div>
-        <div id="chart-spend" class="tabcontent-chart" style="margin-top: 10px">
-          <div id="divChart3" style="height: 400px; width: 400px; margin-left: 15%">
+        <div id="chart-spend" class="tabcontent-chart chart-wrapper" style="margin-top: 10px">
+          <div id="divChart3" class="chart-item" style="height: 400px; width: 400px;">
             <canvas id="myChart3"></canvas>
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-lg-6 col-xs-12">
         <div class="row" style="text-align: center;margin-top: 10px">
           <h5>Thu nhập 6 tháng gần nhất</h5>
         </div>
@@ -33,10 +33,10 @@
       </div>
     </div>
   </div>
-  <div class="main_content_iner">
+  <div class="main_content_iner" style="min-height: 0vh !important;">
     <div class="container-fluid plr_30 body_white_bg pt_30">
       <div class="row justify-content-center">
-        <div class="col-md-3" style="height: 100vh;">
+        <div class="col-xs-12 col-lg-3" style="height: 100vh;">
           <div class="email-sidebar">
             <form [formGroup]="formSearch" (ngSubmit)="searchWallet()">
               <h4 style="font-size: 16px;margin-top: 3px">Nhập thông tin tiềm kiếm</h4>
@@ -94,7 +94,7 @@
             </form>
           </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-xs-12 col-lg-9">
           <div class="white_box QA_section" style="background: white">
             <div class="white_box_tittle list_header">
               <h4 style="margin-top: -5px"><i class="fa-solid fa-list"></i> Danh sách giao dịch</h4>
@@ -111,68 +111,70 @@
             </div>
             <div class="QA_table">
               <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
-                <table class="table lms_table_active">
-                  <thead>
-                  <tr>
-                    <th scope="col">
-                      <label class="form-label primary_checkbox d-flex me-12 ">
-                        Thứ tự
-                      </label>
-                    </th>
-                    <th scope="col"></th>
-                    <th scope="col">Loại giao dịch</th>
-                    <th scope="col">Số tiền ({{nameCate}})</th>
-                    <th scope="col">Thời gian</th>
-                    <th scope="col"><i class="fa-solid fa-ellipsis"></i></th>
-                  </tr>
-                  </thead>
-                  <tbody
-                    *ngFor="let transaction of transactions |paginate: { itemsPerPage: 7, currentPage: p, totalItems: total }; let i = index">
-                  <tr>
-                    <th scope="row">
-                      <label class="form-label primary_checkbox d-flex me-12 ">{{i + 1}}</label>
-                    </th>
-                    <td></td>
-                    <td>
-                      <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0">
-                          <svg width="20" height="20">
-                            <rect width="25" height="25"
-                                  [ngStyle]="{'fill':transaction.category.color,'stroke-width':'3px'}"/>
-                          </svg>
+                <div class="table-responsive">
+                  <table class="table lms_table_active">
+                    <thead>
+                    <tr>
+                      <th scope="col">
+                        <label class="form-label primary_checkbox d-flex me-12 ">
+                          Thứ tự
+                        </label>
+                      </th>
+                      <th scope="col"></th>
+                      <th scope="col">Loại giao dịch</th>
+                      <th scope="col">Số tiền ({{nameCate}})</th>
+                      <th scope="col">Thời gian</th>
+                      <th scope="col"><i class="fa-solid fa-ellipsis"></i></th>
+                    </tr>
+                    </thead>
+                    <tbody
+                      *ngFor="let transaction of transactions |paginate: { itemsPerPage: 7, currentPage: p, totalItems: total }; let i = index">
+                    <tr>
+                      <th scope="row">
+                        <label class="form-label primary_checkbox d-flex me-12 ">{{i + 1}}</label>
+                      </th>
+                      <td></td>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          <div class="flex-shrink-0">
+                            <svg width="20" height="20">
+                              <rect width="25" height="25"
+                                    [ngStyle]="{'fill':transaction.category.color,'stroke-width':'3px'}"/>
+                            </svg>
+                          </div>
+                          <div class="flex-grow-1 ms-3">
+                            <p>{{transaction.category.name}}</p>
+                          </div>
                         </div>
-                        <div class="flex-grow-1 ms-3">
-                          <p>{{transaction.category.name}}</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <p>{{transaction.totalSpent}}</p>
-                    </td>
-                    <td>
-                      <p class="nowrap">{{transaction.time}}</p>
-                    </td>
-                    <td class="form-check form-switch">
-                      <a (click)="isOpenHtml(i+1)"><i class="fa-solid fa-ellipsis"></i></a>
-                    </td>
-                  </tr>
-                  <tr id="{{i+1}}" [hidden]="isOpen">
-                    <td style="text-align: center" colspan="3">
-                      Ghi chú : {{transaction.note}}
-                    </td>
-                    <td style="text-align: center">
-                      <i class="fa-solid fa-trash" style="color: red" (click)="confirmDelete(transaction.id)"></i>
-                    </td>
-                    <td style="text-align: center">
-                      <a data-bs-toggle="modal" data-bs-target="#exampleModal-edit" 
-                      (click)="getTransaction(transaction.id)"><i class="fa-solid fa-pen-to-square"
-                                                                                       style="color: green">
-                      </i></a>
-                    </td>
-                    <td></td>
-                  </tr>
-                  </tbody>
-                </table>
+                      </td>
+                      <td>
+                        <p>{{transaction.totalSpent}}</p>
+                      </td>
+                      <td>
+                        <p class="nowrap">{{transaction.time}}</p>
+                      </td>
+                      <td class="form-check form-switch">
+                        <a (click)="isOpenHtml(i+1)"><i class="fa-solid fa-ellipsis"></i></a>
+                      </td>
+                    </tr>
+                    <tr id="{{i+1}}" [hidden]="isOpen">
+                      <td style="text-align: center" colspan="3">
+                        Ghi chú : {{transaction.note}}
+                      </td>
+                      <td style="text-align: center">
+                        <i class="fa-solid fa-trash" style="color: red" (click)="confirmDelete(transaction.id)"></i>
+                      </td>
+                      <td style="text-align: center">
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal-edit" 
+                        (click)="getTransaction(transaction.id)"><i class="fa-solid fa-pen-to-square"
+                                                                                         style="color: green">
+                        </i></a>
+                      </td>
+                      <td></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
                 <div class="dataTables_scroll" id="DataTables_Table_0_paginate"
                      style="margin-left: 500px; margin-top: 20px">
                   <pagination-controls

@@ -111,6 +111,7 @@ import { AdminChangePasswordComponent } from './admin-change-password/admin-chan
     MatPaginatorModule,
     SocialLoginModule
   ],
+  entryComponents: [SideBarComponent] ,
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

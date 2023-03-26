@@ -16,33 +16,36 @@
               </div>
             </div>
             <div class="QA_table ">
-              <table class="table lms_table_active">
-                <thead>
-                <tr style="text-align: center">
-                  <th scope="col">Tên</th>
-                  <th scope="col">Ghi chú</th>
-                  <th scope="col">Loại</th>
-                  <th scope="col">Màu sắc</th>
-                  <th scope="col">Sửa</th>
-                  <th scope="col">Xóa</th>
-                </tr>
-                </thead>
-                <tbody *ngFor="let category of categories|paginate: { itemsPerPage: 7, currentPage: p, totalItems: total }; let i = index;">
-                <tr style="text-align: center">
-                  <td scope="row"><a href="#" class="question_content">{{category.name}}</a></td>
-                  <td>{{category.note}}</td>
-                  <td *ngIf="category.status == '1'" style="color: rgba(0,0,0,0.68); size: 3px">Thu</td>
-                  <td *ngIf="category.status == '2'" style="color: rgba(0,0,0,0.68); size: 3px">Chi</td>
-                  <td>
-                    <div class="br" [ngStyle]="{'background': category.color,'height':'5px'}"></div>
-                  </td>
-                  <td><a class="status_btn" style="background: rgb(6, 239, 10)" data-bs-toggle="modal" data-bs-target="#staticBackdrop-edit-category" (click)="getCategory(category.id)"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                  <td><a class="status_btn" style="background: rgb(239, 13, 13)" (click)="findAllTransaction(category.id)"><i class="fa-solid fa-trash"></i></a></td>
-                </tr>
-                </tbody>
-              </table>
+              <div class="table-responsive">
+                <table class="table lms_table_active">
+                  <thead>
+                  <tr style="text-align: center">
+                    <th scope="col">Tên</th>
+                    <th scope="col">Ghi chú</th>
+                    <th scope="col">Loại</th>
+                    <th scope="col">Màu sắc</th>
+                    <th scope="col">Sửa</th>
+                    <th scope="col">Xóa</th>
+                  </tr>
+                  </thead>
+                  <tbody *ngFor="let category of categories|paginate: { itemsPerPage: 7, currentPage: p, totalItems: total }; let i = index;">
+                  <tr style="text-align: center">
+                    <td scope="row"><a href="#" class="question_content">{{category.name}}</a></td>
+                    <td>{{category.note}}</td>
+                    <td *ngIf="category.status == '1'" style="color: rgba(0,0,0,0.68); size: 3px">Thu</td>
+                    <td *ngIf="category.status == '2'" style="color: rgba(0,0,0,0.68); size: 3px">Chi</td>
+                    <td>
+                      <div class="br" [ngStyle]="{'background': category.color,'height':'5px'}"></div>
+                    </td>
+                    <td><a class="status_btn" style="background: rgb(6, 239, 10)" data-bs-toggle="modal" data-bs-target="#staticBackdrop-edit-category" (click)="getCategory(category.id)"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                    <td><a class="status_btn" style="background: rgb(239, 13, 13)" (click)="findAllTransaction(category.id)"><i class="fa-solid fa-trash"></i></a></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+
               <div class="dataTables_scroll" id="DataTables_Table_0_paginate"
-                   style="margin-left: 850px; margin-top: 35px">
+                   style="display: flex ; justify-content: flex-end; margin-top: 35px">
                 <pagination-controls previousLabel="Trước" nextLabel="Sau" (pageChange)="pageChangeEvent($event)"></pagination-controls>
               </div>
             </div>

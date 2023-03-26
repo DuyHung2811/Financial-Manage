@@ -37,15 +37,19 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       // @ts-ignore
-      document.getElementById("defaultOpen").click();
+      // document.getElementById("defaultOpen").click();
+      this.chart();
       this.chart2();
-    }, 800)
+      this.chart3();
+    }, 1500)
+    setTimeout(() => {
+      // @ts-ignore
+      document.getElementById("defaultOpen").click();
+    }, 2000)
     this.findMaxMin();
     this.showTransaction();
     this.getData6Month();
     this.getData6MonthExpense()
-    this.chart();
-    this.chart3();
     this.getNameCate();
     this.showExpenseCategoryUpdate();
     this.showIncomeCategoryUpdate();
@@ -197,16 +201,16 @@ export class HomeComponent implements OnInit {
   getData6Month() {
     let today = new Date();
     this.transactionService.findAllTransactionsIncomeFor6Months().subscribe((transaction) => {
-      this.pushTotalIncome(transaction[today.getMonth() - 4 + '']);
-      this.pushTotalIncome(transaction[today.getMonth() - 3 + '']);
-      this.pushTotalIncome(transaction[today.getMonth() - 2 + '']);
-      this.pushTotalIncome(transaction[today.getMonth() - 1 + '']);
-      this.pushTotalIncome(transaction[today.getMonth() + '']);
-      this.pushTotalIncome(transaction[today.getMonth() + 1 + '']);
+      for (const key in transaction) {
+        this.pushTotalIncome(transaction[key]);
+      }
+      
     })
   }
 
   pushTotalIncome(transactions: any) {
+    console.log(1234)
+    console.log(transactions)
     this.transactionsIncomeMonth = transactions;
     if (this.transactionsIncomeMonth.length == 0) {
       this.totalIncome.push(0);
@@ -227,13 +231,10 @@ export class HomeComponent implements OnInit {
   getData6MonthExpense() {
     let today = new Date();
     this.transactionService.findAllTransactionsExpenseFor6Months().subscribe((transaction) => {
-      this.pushTotalExpense(transaction[today.getMonth() - 4 + '']);
-      this.pushTotalExpense(transaction[today.getMonth() - 3 + '']);
-      this.pushTotalExpense(transaction[today.getMonth() - 2 + '']);
-      this.pushTotalExpense(transaction[today.getMonth() - 1 + '']);
-      this.pushTotalExpense(transaction[today.getMonth() + '']);
-      this.pushTotalExpense(transaction[today.getMonth() + 1 + '']);
-      this.lab.push('Tháng ' + (today.getMonth() - 4) + '', 'Tháng ' + (today.getMonth() - 3) + '', 'Tháng ' + (today.getMonth() - 2) + '', 'Tháng ' + (today.getMonth() - 1) + '', 'Tháng ' + today.getMonth() + '', 'Tháng ' + (today.getMonth() + 1) + '')
+      for (const key in transaction) {
+        this.pushTotalExpense(transaction[key]);
+        this.lab.push('Tháng ' + key)
+      }
     })
   }
 
@@ -253,6 +254,8 @@ export class HomeComponent implements OnInit {
   }
 
   chart2() {
+    console.log(this.totalIncome)
+    console.log(this.totalExpense)
     const ctx2 = document.getElementById('myChart2');
     // @ts-ignore
     const myChart2 = new Chart(ctx2, {
