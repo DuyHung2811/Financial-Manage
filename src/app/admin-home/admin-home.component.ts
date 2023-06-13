@@ -1,6 +1,7 @@
 import { User } from './../model/user';
 import { UserService } from './../service/user.service';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 
@@ -12,6 +13,12 @@ import { NgToastService } from 'ng-angular-popup';
 export class AdminHomeComponent implements OnInit {
   user: User | any;
   isOpen: boolean = true;
+  name: any;
+
+  searchForm = new FormGroup({
+    name: new FormControl(),
+  })
+
 
 
 
@@ -75,5 +82,35 @@ export class AdminHomeComponent implements OnInit {
 
   pageChangeEvent(event: number) {
     this.p = event;
+  }
+
+
+  searchUser() {
+    this.name = this.searchForm.value.name;
+    this.UserService.adminFindUser(this.name).subscribe((data) => {
+      if(this.name==""){
+        this.UserService.showAllUser().subscribe((data) => {
+          this.listUsers = data;
+        }, e => {
+          console.log(e);
+        })
+      }
+      else
+      {
+        if(data == ""){
+          alert("Không tìm thấy người dùng")
+        }
+        else{
+          this.listUsers = data;
+        }
+      }
+      // if(data == "") {
+      //   alert("Không tìm thấy người dùng");
+      // }
+      // this.listUsers = data;
+    }, 
+    e => {
+      console.log(e);
+    });
   }
 }

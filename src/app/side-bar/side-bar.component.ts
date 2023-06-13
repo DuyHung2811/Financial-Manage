@@ -23,11 +23,11 @@ export class SideBarComponent implements OnInit {
     this.router.navigate(['/']).then();
   }
 
- onToggleSidebar() {
-    console.log("a");
-    // const sidebar = document.querySelector(".sidebar");
-    // if(sidebar) {
-    //   sidebar.classList.toggle("active");
-    // }
-  }
+//  onToggleSidebar() {
+//     console.log("a");
+//     const sidebar = document.querySelector(".sidebar");
+//     if(sidebar) {
+//       sidebar.classList.toggle("active");
+//     }
+//   }
 }

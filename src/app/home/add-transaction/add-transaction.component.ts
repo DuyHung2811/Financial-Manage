@@ -1,3 +1,5 @@
+import { WalletService } from './../../service/wallet.service';
+import { Wallet } from './../../model/wallet';
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Category} from "../../model/category";
@@ -12,6 +14,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./add-transaction.component.css']
 })
 export class AddTransactionComponent implements OnInit {
+  wallet: any;
+  totalMoney: any;
+
 
   transactionForm = new FormGroup({
     time: new FormControl(),
@@ -27,6 +32,7 @@ export class AddTransactionComponent implements OnInit {
   transaction: any;
 
   constructor(private transactionService: TransactionService,
+              private walletService: WalletService, 
               private categoryService: CategoryService,
               private toast: NgToastService) {
   }
@@ -64,7 +70,7 @@ export class AddTransactionComponent implements OnInit {
         id: localStorage.getItem('ID_WALLET')
       }
     }
-    // console.log(this.transaction);
+    
     this.transactionService.save(this.transaction).subscribe(() => {
       this.toast.success({detail: "Thông báo", summary: "Thêm giao dịch thành công!", duration: 3000, position: 'br'})
       setInterval(() => {
@@ -78,6 +84,16 @@ export class AddTransactionComponent implements OnInit {
       this.category = category;
       this.nameCategory = category.name;
       this.color = category.color;
+    })
+  }
+
+
+  findWallet() {
+    // @ts-ignore
+    this.walletService.findById(localStorage.getItem('ID_WALLET')).subscribe((wallet) => {
+      this.wallet = wallet;
+      console.log("a",this.wallet)
+      // this.totalMoney = this.wallet.moneyAmount;
     })
   }
 }

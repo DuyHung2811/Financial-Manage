@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
   isOpen: boolean = true;
   transactions: Transaction[] = [];
   idWallet: any;
+  totalMoneyIncome: any;
+  totalMoneyExpense: any;
 
   constructor(private transactionService: TransactionService,
               private categoryService: CategoryService,
@@ -41,6 +43,8 @@ export class HomeComponent implements OnInit {
       this.chart();
       this.chart2();
       this.chart3();
+      // this.chart4();
+      // this.chart5();
     }, 1500)
     setTimeout(() => {
       // @ts-ignore
@@ -53,6 +57,8 @@ export class HomeComponent implements OnInit {
     this.getNameCate();
     this.showExpenseCategoryUpdate();
     this.showIncomeCategoryUpdate();
+    this.findAllTransactionsIncome();
+    this.findAllTransactionsExpense();
   }
 
   isOpenHtml(id: any) {
@@ -64,6 +70,20 @@ export class HomeComponent implements OnInit {
       // @ts-ignore
       document.getElementById('' + id).hidden = true;
     }
+  }
+
+  findAllTransactionsIncome(){
+    this.transactionService.findAllTransactionsIncome().subscribe((transactions) => {
+      this.transactions = transactions;
+      this.totalMoneyIncome = this.transactions;
+    })
+  }
+
+  findAllTransactionsExpense(){
+    this.transactionService.findAllTransactionsExpense().subscribe((transactions) => {
+      this.transactions = transactions;
+      this.totalMoneyExpense = this.transactions;
+    })
   }
 
   showTransaction() {
@@ -114,6 +134,46 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // transactionsSpent5: any[] = [];
+  // labelsSpent5: any[] = ['Trống'];
+  // colorSpent5: any[] = ['#d0e1ef'];
+  // totalRevenueSpent5 = 0;
+  // percentMoneySpent5: any[] = [100];
+  // checkIdSpent5: any[] = [];
+  // totalSpent5: any[] = [];
+
+  // getDataSpent2() {
+  //   let pm = 0;
+  //   this.transactionService.findAllTrasactionByUser(2).subscribe((transactions) => {
+  //     this.transactionsSpent5 = transactions;
+  //     if (this.transactionsSpent5.length != 0) {
+  //       this.labelsSpent5.pop();
+  //       this.colorSpent5.shift();
+  //       this.percentMoneySpent5.pop();
+  //       for (let i = 0; i < this.transactionsSpent5.length; i++) {
+  //         if (!this.checkIdSpent5.includes(this.transactionsSpent5[i].category.id)) {
+  //           this.labelsSpent5.push(this.transactionsSpent5[i].category.name);
+  //           this.colorSpent5.push(this.transactionsSpent5[i].category.color);
+  //           this.checkIdSpent5.push(this.transactionsSpent5[i].category.id);
+  //           this.totalSpent5.push(this.transactionsSpent5[i].totalSpent5);
+  //         } else {
+  //           for (let j = 0; j < this.checkIdSpent5.length; j++) {
+  //             if (this.checkIdSpent5[j] == this.transactionsSpent5[i].category.id) {
+  //               this.totalSpent5[j] += this.transactionsSpent5[i].totalSpent5;
+  //             }
+  //           }
+  //         }
+  //         this.totalRevenueSpent5 += this.transactionsSpent5[i].totalSpent5;
+  //       }
+  //       for (let i = 0; i < this.totalSpent5.length; i++) {
+  //         pm = (this.totalSpent5[i] / this.totalRevenueSpent5) * 100;
+  //         this.percentMoneySpent5.push(pm);
+  //       }
+  //     }
+  //   });
+  // }
+
+
   chart3() {
     this.getDataSpent();
     const ctx = document.getElementById('myChart3');
@@ -131,6 +191,54 @@ export class HomeComponent implements OnInit {
       },
     });
   }
+
+  // transactionsCollect4: any[] = [];
+  // labelsCollect4: any[] = ['Trống'];
+  // colorCollect4: any[] = ['#d0e1ef'];
+  // totalRevenueCollect4 = 0;
+  // percentMoney4: any[] = [100];
+  // checkIdCollect4: any[] = [];
+  // totalCollect4: any[] = [];
+
+  // chart4() {
+  //   console.log("a4");
+  //   this.getDataCollect2();
+  //   const ctx = document.getElementById('myChart4');
+  //   console.log(ctx)
+  //   // @ts-ignore
+  //   const myChart4 = new Chart(ctx, {
+  //     type: 'doughnut',
+  //     data: {
+  //       labels: this.labelsCollect4,
+  //       datasets: [{
+  //         label: 'My First Dataset 4',
+  //         data: this.percentMoney4,
+  //         backgroundColor: this.colorCollect4,
+  //         hoverOffset: 4
+  //       }]
+  //     },
+  //   });
+  //   console.log(myChart4)
+  // }
+
+  // chart5() {
+  //   this.getDataSpent2();
+  //   const ctx = document.getElementById('myChart5');
+  //   // @ts-ignore
+  //   const myChart5 = new Chart(ctx, {
+  //     type: 'doughnut',
+  //     data: {
+  //       labels: this.labelsSpent5,
+  //       datasets: [{
+  //         label: 'My First Dataset 5',
+  //         data: this.percentMoneySpent5,
+  //         backgroundColor: this.colorSpent5,
+  //         hoverOffset: 4
+  //       }]
+  //     },
+  //   });
+  // }
+
 
 
   //biểu đồ thu
@@ -174,6 +282,45 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // transactionsCollect4: any[] = [];
+  // labelsCollect4: any[] = ['Trống'];
+  // colorCollect4: any[] = ['#d0e1ef'];
+  // totalRevenueCollect4 = 0;
+  // percentMoney4: any[] = [100];
+  // checkIdCollect4: any[] = [];
+  // totalCollect4: any[] = [];
+
+  // getDataCollect2() {
+  //   let pm = 0;
+  //   this.transactionService.findAllTrasactionByUser(1).subscribe((transactions) => {
+  //     this.transactionsCollect4 = transactions;
+  //     if (this.transactionsCollect4.length != 0) {
+  //       this.labelsCollect4.pop();
+  //       this.colorCollect4.pop();
+  //       this.percentMoney4.pop();
+  //       for (let i = 0; i < this.transactionsCollect4.length; i++) {
+  //         if (!this.checkIdCollect4.includes(this.transactionsCollect4[i].category.id)) {
+  //           this.labelsCollect4.push(this.transactionsCollect4[i].category.name);
+  //           this.colorCollect4.push(this.transactionsCollect4[i].category.color);
+  //           this.checkIdCollect4.push(this.transactionsCollect4[i].category.id);
+  //           this.totalCollect4.push(this.transactionsCollect4[i].totalSpent);
+  //         } else {
+  //           for (let j = 0; j < this.checkIdCollect4.length; j++) {
+  //             if (this.checkIdCollect4[j] == this.transactionsCollect4[i].category.id) {
+  //               this.totalCollect4[j] += this.transactionsCollect4[i].totalSpent;
+  //             }
+  //           }
+  //         }
+  //         this.totalRevenueCollect4 += this.transactionsCollect4[i].totalSpent;
+  //       }
+  //       for (let i = 0; i < this.totalCollect4.length; i++) {
+  //         pm = (this.totalCollect4[i] / this.totalRevenueCollect4) * 100;
+  //         this.percentMoney4.push(pm);
+  //       }
+  //     }
+  //   });
+  // }
+
   chart() {
     this.getDataCollect();
     const ctx = document.getElementById('myChart');
@@ -209,8 +356,6 @@ export class HomeComponent implements OnInit {
   }
 
   pushTotalIncome(transactions: any) {
-    console.log(1234)
-    console.log(transactions)
     this.transactionsIncomeMonth = transactions;
     if (this.transactionsIncomeMonth.length == 0) {
       this.totalIncome.push(0);
@@ -254,8 +399,8 @@ export class HomeComponent implements OnInit {
   }
 
   chart2() {
-    console.log(this.totalIncome)
-    console.log(this.totalExpense)
+    // console.log(this.totalIncome)
+    // console.log(this.totalExpense)
     const ctx2 = document.getElementById('myChart2');
     // @ts-ignore
     const myChart2 = new Chart(ctx2, {
@@ -516,7 +661,7 @@ export class HomeComponent implements OnInit {
     this.transactionService.update(this.transaction.id, this.transactionUpdate).subscribe(() => {
       this.toast.success({detail: "Thông Báo", summary: "Sửa giao dịch thành công", duration: 3000, position: "br"});
       setInterval(() => {
-        location.reload()
+        // location.reload()
       }, 400)
     }, e => {
       this.toast.error({detail: "Thông Báo", summary: "Sửa giao dịch thất bại", duration: 3000, position: "br"});
@@ -540,7 +685,7 @@ export class HomeComponent implements OnInit {
     console.log(this.transactionUpdate);
     this.transactionService.updateTransaction(this.transaction.id, this.transactionUpdate).subscribe(() => {
       setInterval(() => {
-        location.reload()
+        // location.reload()
       }, 400)
     }, e => {
     })

@@ -1,4 +1,9 @@
 <nav class="sidebar" style="background-color: rgb(107, 146, 188)">
+  <!-- <div>
+    <div class="sidebar_icon d-lg-none">
+      <i class="ti-menu"></i>
+    </div>
+  </div> -->
   <div class="logo d-flex justify-content-between" style="background-color: rgb(107, 146, 188)">
     <img src="assets/img/logo2.png" style="width: 100px;height:100px;overflow:hidden;margin-top: -25px;border-radius: 50%;">
     <div class="sidebar_close_icon d-lg-none">
@@ -44,3 +49,19 @@
     </li>
   </ul>
 </nav>
+
+<!-- <script>
+  $(document).ready(function() {
+    var isMenuOpen = false;
+    $('.sidebar_icon').click(function(){
+      console.log('test');
+      if(isMenuOpen == false){
+        $('.sidebar').clearQueue().animate({
+          left: '0px'
+        })
+        isMenuOpen = true;
+        $('.')
+      }
+    })
+  })
+</script> -->

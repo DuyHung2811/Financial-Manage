@@ -3,7 +3,11 @@
   <app-nav-bar></app-nav-bar>
   <div class="main_content_iner">
     <div class="row">
-      <div class="col-lg-6 col-xs-12">
+      <div class="d-flex justify-content-center" style="margin: 0 auto; gap: 40px; margin-bottom: 40px;">
+          <p style="font-size: 24px; font-weight: bold;">Tổng thu: {{totalMoneyIncome}}</p>
+          <p style="font-size: 24px; font-weight: bold;">Tổng chi: {{totalMoneyExpense}}</p>
+      </div>
+      <div class="col-6">
         <div class="tab">
           <button class="tablinks-chart" onclick="openCityChart(event, 'chart-collect')" style="width: 50%">Biểu
             đồ thu
@@ -12,18 +16,18 @@
                   id="defaultOpen">Biểu đồ chi
           </button>
         </div>
-        <div id="chart-collect" class="tabcontent-chart chart-wrapper" style="margin-top: 10px"> c
-          <div id="divChart" class="chart-item" style="height: 400px; width: 400px;">
+        <div id="chart-collect" class="tabcontent-chart" style="margin-top: 10px">
+          <div id="divChart" style="height: 400px; width: 400px; margin-left: 15%">
             <canvas id="myChart"></canvas>
           </div>
         </div>
-        <div id="chart-spend" class="tabcontent-chart chart-wrapper" style="margin-top: 10px">
-          <div id="divChart3" class="chart-item" style="height: 400px; width: 400px;">
+        <div id="chart-spend" class="tabcontent-chart" style="margin-top: 10px">
+          <div id="divChart3" style="height: 400px; width: 400px; margin-left: 15%">
             <canvas id="myChart3"></canvas>
           </div>
         </div>
       </div>
-      <div class="col-lg-6 col-xs-12">
+      <div class="col-6">
         <div class="row" style="text-align: center;margin-top: 10px">
           <h5>Thu nhập 6 tháng gần nhất</h5>
         </div>
@@ -33,6 +37,10 @@
       </div>
     </div>
   </div>
+
+ 
+  
+  
   <div class="main_content_iner" style="min-height: 0vh !important;">
     <div class="container-fluid plr_30 body_white_bg pt_30">
       <div class="row justify-content-center">
@@ -64,7 +72,7 @@
                          formControlName="status" checked
                          style="margin-left: 30px">
                   <img
-                    src="https://th.bing.com/th/id/OIP.YYwgJIlLuiZze46LExS0TQHaHa?w=203&h=203&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                    src="./assets/img/icon_tien.jpg"
                     style="width: 20px;height: 20px; margin-right: 4px;margin-left: 5px;">
                   <label class="form-check-label" for="flexRadioDefault1">
                     Thu
@@ -73,7 +81,7 @@
                          formControlName="status" value="2"
                          style="margin-left: 40px">
                   <img
-                    src="https://th.bing.com/th/id/OIP.YYwgJIlLuiZze46LExS0TQHaHa?w=203&h=203&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                    src="./assets/img/icon_tien.jpg"
                     style="width: 20px;height: 20px; margin-right: 5px; margin-left: 5px">
                   <label class="form-check-label" for="flexRadioDefault2">
                     Chi
@@ -128,7 +136,7 @@
                     </tr>
                     </thead>
                     <tbody
-                      *ngFor="let transaction of transactions |paginate: { itemsPerPage: 7, currentPage: p, totalItems: total }; let i = index">
+                      *ngFor="let transaction of transactions |paginate: { itemsPerPage: 3, currentPage: p, totalItems: total }; let i = index">
                     <tr>
                       <th scope="row">
                         <label class="form-label primary_checkbox d-flex me-12 ">{{i + 1}}</label>

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12 p-0">
       <div class="header_iner d-flex justify-content-between align-items-center">
-        <div (click)="handleToggleSidebar()" class="sidebar_icon d-lg-none">
+        <div class="sidebar_icon d-lg-none">
           <i class="ti-menu"></i>
         </div>
         <div>
@@ -19,5 +19,20 @@
     </div>
   </div>
 </div>
+
+<!-- <script>
+  $(document).ready(function() {
+    var isMenuOpen = false;
+    $('.sidebar_icon').click(function(){
+      console.log('test');
+      if(isMenuOpen == false){
+        $('.sidebar').clearQueue().animate({
+          left: '0px'
+        })
+        isMenuOpen = true;
+      }
+    })
+  })
+</script> -->
 
 

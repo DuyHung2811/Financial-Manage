@@ -34,9 +34,9 @@
                         <div [hidden]="!username?.errors?.['minlength']">
                           <i style="color: red" > Tên đăng nhập phải có ít nhất 6 ký tự</i>
                         </div>
-                        <div [hidden]="!username?.errors?.['maxlength']">
+                        <!-- <div [hidden]="!username?.errors?.['maxlength']">
                           <i style="color: red" > Tên đăng nhập có tối đa 12 ký tự</i>
-                        </div>
+                        </div> -->
                       </div>
                       <div class="">
                         <input type="password" class="form-control" placeholder="Mật khẩu" formControlName="password">

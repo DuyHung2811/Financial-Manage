@@ -44,6 +44,16 @@ export class TransactionService {
     return this.httpClient.get(API + `find-all-by-time?status=${status}&id=${id}`);
   }
 
+  findAllTransactionsIncome(): Observable<any> {
+    const id = localStorage.getItem("ID_WALLET");
+    return this.httpClient.get(API + `find-all-trasaction-income?&id=${id}`);
+  }
+
+  findAllTransactionsExpense(): Observable<any> {
+    const id = localStorage.getItem("ID_WALLET");
+    return this.httpClient.get(API + `find-all-trasaction-expense?id=${id}`);
+  }
+
   findAllTransactionsIncomeFor6Months(): Observable<any> {
     const id = localStorage.getItem("ID_WALLET");
     console.log(id)

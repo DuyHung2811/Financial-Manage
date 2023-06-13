@@ -37,8 +37,13 @@
                     <td>
                       <div class="br" [ngStyle]="{'background': category.color,'height':'5px'}"></div>
                     </td>
-                    <td><a class="status_btn" style="background: rgb(6, 239, 10)" data-bs-toggle="modal" data-bs-target="#staticBackdrop-edit-category" (click)="getCategory(category.id)"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                    <td><a class="status_btn" style="background: rgb(239, 13, 13)" (click)="findAllTransaction(category.id)"><i class="fa-solid fa-trash"></i></a></td>
+                    <!-- <td><a class="status_btn" style="background: rgb(4, 58, 5)" data-bs-toggle="modal" data-bs-target="#staticBackdrop-edit-category" (click)="getCategory(category.id)"><i class="fa-solid fa-pen-to-square"></i></a></td> -->
+
+                    <td><a class="status_btn" style="color: #fff;background-color: #198754;border-color: #198754;" data-bs-toggle="modal" data-bs-target="#staticBackdrop-edit-category" (click)="getCategory(category.id)"><i class="fa-solid fa-pen-to-square"></i></a></td>
+
+                    <!-- <td><a class="status_btn" style="background: rgb(239, 13, 13)" (click)="findAllTransaction(category.id)"><i class="fa-solid fa-trash"></i></a></td> -->
+
+                    <td><a class="status_btn" style="    color: #fff;background-color: #dc3545;border-color: #dc3545;" (click)="findAllTransaction(category.id)"><i class="fa-solid fa-trash"></i></a></td>
                   </tr>
                   </tbody>
                 </table>

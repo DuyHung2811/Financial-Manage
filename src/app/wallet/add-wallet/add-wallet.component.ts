@@ -46,7 +46,7 @@ export class AddWalletComponent implements OnInit {
         id: localStorage.getItem('ID')
       }
     }
-    console.log(this.wallet)
+    // console.log(this.wallet)
     this.walletService.save(this.wallet).subscribe((data) => {
       this.onNewWallet.emit(data)
       this.toast.success({detail:"Thông báo", summary: "Thêm ví thành công!",duration: 3000,position:'br'})
